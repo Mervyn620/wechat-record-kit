@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local/wechat_record_kit/normalized_message.schema.json",
+  "title": "Normalized chat message",
+  "type": "object",
+  "required": [
+    "source_platform",
+    "source_adapter",
+    "talker_id",
+    "sender_id",
+    "time",
+    "content"
+  ],
+  "properties": {
+    "source_platform": {
+      "type": "string",
+      "enum": ["wechat", "wecom", "unknown"]
+    },
+    "source_adapter": {
+      "type": "string"
+    },
+    "account_id": {
+      "type": ["string", "null"]
+    },
+    "talker_id": {
+      "type": ["string", "null"]
+    },
+    "talker_name": {
+      "type": ["string", "null"]
+    },
+    "sender_id": {
+      "type": ["string", "null"]
+    },
+    "sender_name": {
+      "type": ["string", "null"]
+    },
+    "is_self": {
+      "type": ["boolean", "null"]
+    },
+    "time": {
+      "type": ["string", "null"],
+      "description": "ISO 8601 string when available; otherwise original timestamp string."
+    },
+    "message_id": {
+      "type": ["string", "integer", "null"]
+    },
+    "message_type": {
+      "type": ["string", "integer", "null"]
+    },
+    "message_subtype": {
+      "type": ["string", "integer", "null"]
+    },
+    "content": {
+      "type": ["string", "null"]
+    },
+    "media": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    },
+    "raw": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
+

@@ -1,0 +1,49 @@
+# Python / tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+node_modules/
+
+# Local run outputs
+runs/
+work/
+exports/
+tmp/
+logs/
+tools/
+exports_txt/
+single_chat_exports/
+decrypted*/
+decrypted_*/
+
+# Secrets and raw data
+secrets/
+*.env
+.env*
+all_keys.json
+*keys*.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.jsonl
+*.csv
+*.xlsx
+
+# Vendored third-party code/binaries used for local experiments
+vendors/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

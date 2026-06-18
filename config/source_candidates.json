@@ -1,0 +1,48 @@
+{
+  "snapshot_date": "2026-05-28",
+  "candidates": [
+    {
+      "name": "xaoyaoo/PyWxDump",
+      "url": "https://github.com/xaoyaoo/PyWxDump",
+      "status": "removed",
+      "use": "historical-reference-only",
+      "notes": "README says the project code and history were removed on 2025-10-20 due to compliance risk."
+    },
+    {
+      "name": "sjzar/chatlog",
+      "url": "https://github.com/sjzar/chatlog",
+      "status": "removed-upstream",
+      "use": "do-not-assume-installable",
+      "notes": "README says code and binaries were removed on 2025-10-20."
+    },
+    {
+      "name": "LC044/WeChatMsg",
+      "url": "https://github.com/LC044/WeChatMsg",
+      "status": "stale-visible-repo",
+      "use": "historical-ui-and-report-reference",
+      "notes": "README says the project has not been updated for a long time and likely will not be updated."
+    },
+    {
+      "name": "0xlane/wechat-dump-rs",
+      "url": "https://github.com/0xlane/wechat-dump-rs",
+      "status": "archived-removed-branch",
+      "use": "historical-release-reference-only",
+      "notes": "GitHub shows archived on 2026-01-09 and default branch content reduced to removal notice."
+    },
+    {
+      "name": "wdecipher",
+      "url": "https://pypi.org/project/wdecipher/",
+      "status": "old-pypi-package",
+      "use": "candidate-after-source-review",
+      "notes": "PyPI package from 2024-08-11; describes Windows-only interfaces based on PyWxDump."
+    },
+    {
+      "name": "chatlog pkg.go.dev cache or fork docs",
+      "url": "https://pkg.go.dev/github.com/power-to-the-brand/chatlog",
+      "status": "docs-visible-source-not-confirmed",
+      "use": "api-shape-reference",
+      "notes": "pkg.go.dev shows v0.4.1 docs dated 2026-03-16, but GitHub repo lookup returned 404 in this run."
+    }
+  ]
+}
+
