@@ -46,7 +46,7 @@ wechat_export_tool\runs\<时间戳>\
 
 ```powershell
 .\Export-WeChatRecords.ps1 `
-  -TargetChat "人美心善的小戴姐姐"
+  -TargetChat "联系人备注或群聊名称"
 ```
 
 也可以同时指定输出目录：
@@ -54,7 +54,7 @@ wechat_export_tool\runs\<时间戳>\
 ```powershell
 .\Export-WeChatRecords.ps1 `
   -DbDir "D:\path\to\xwechat_files\wxid_xxx_xxxx\db_storage" `
-  -TargetChat "人美心善的小戴姐姐" `
+  -TargetChat "联系人备注或群聊名称" `
   -OutputRoot "D:\path\to\wechat_export_run"
 ```
 

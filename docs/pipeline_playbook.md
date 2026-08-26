@@ -1,6 +1,6 @@
 # 工作流 Playbook
 
-目标：把普通微信聊天记录从“本机数据/第三方工具/API”变成稳定、可复用、可审计的 JSONL，供后续 persona/distill/agent 流程使用。
+目标：把普通微信聊天记录从“本机数据/第三方工具/API”变成可阅读的 UTF-8 纯文本，或稳定、可复用、可审计的 JSONL。
 
 ## 阶段 0：边界确认
 
@@ -82,14 +82,15 @@ python -X utf8 .\wechat_record_kit\scripts\normalize_chatlog_http.py --talker wx
 
 如果使用其他工具，按 `templates/tool_adapter_spec.md` 写 adapter。
 
-## 阶段 5：交给现有人格流程
+## 阶段 5：输出交付
 
-现有可复用下游：
+根据使用场景选择最终产物：
 
-- `persona_distill`: 构建离线 persona 资产。
-- `persona_agent_stage1`: 本地运行、记忆、检索和 OpenAI-compatible 服务。
+- 人工阅读或提交给其他本地工具：使用 `exports_txt/all_chats.txt` 或 `exports_txt/by_chat/*.txt`。
+- 程序化分析、检索或归档：使用符合 `normalized_message.schema.json` 的 JSONL。
+- 只需要一个联系人或群聊：使用 `single_chat_exports/` 中的独立文本。
 
-后续要做的桥接脚本只需要从 normalized JSONL 生成 `persona_distill` 的输入格式，不应重新触碰 DB/key。
+交付目录不得包含数据库 key、已解密数据库或未经确认的全量聊天副本。
 
 ## 阶段 6：验证
 
@@ -100,4 +101,4 @@ python -X utf8 .\wechat_record_kit\scripts\normalize_chatlog_http.py --talker wx
 - 空消息、图片、语音、撤回、系统消息等类型处理策略。
 - 中文编码。
 - 去重规则。
-- 下游 persona 构建是否能输出 expected artifact counts。
+- 输出目录是否只包含用户明确需要的聊天范围。

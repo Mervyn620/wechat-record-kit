@@ -51,7 +51,11 @@ def candidate_roots(search_all_drives=False):
         except Exception:
             resolved = root
         key = str(resolved).lower()
-        if key not in seen and root.exists():
+        try:
+            exists = root.exists()
+        except OSError:
+            exists = False
+        if key not in seen and exists:
             seen.add(key)
             out.append(root)
     return out
@@ -107,7 +111,11 @@ def walk_for_db_storage(root: Path, max_depth: int):
         except (OSError, PermissionError):
             continue
         for child in children:
-            if not child.is_dir():
+            try:
+                is_dir = child.is_dir()
+            except OSError:
+                continue
+            if not is_dir:
                 continue
             name = child.name.lower()
             if name in {

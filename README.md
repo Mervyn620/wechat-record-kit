@@ -1,6 +1,6 @@
 # WeChat Record Kit
 
-普通微信聊天记录定位、授权导出、抽取前审计、结构检查和归一化的复用小项目。
+普通微信聊天记录定位、授权解密、纯文本导出、结构检查和可选归一化的复用小项目。
 
 这个目录保存流程、只读脚本、schema、适配器模板，以及一个可选的本机微信 4.x 导出工具。导出工具只应该用于你本人账号或已明确授权的数据；它会把 key、已解密 DB 和聊天正文作为本地运行产物处理，并通过 `.gitignore` 排除。
 
@@ -43,7 +43,7 @@
 
 - `docs/source_landscape_2026-05-28.md`: GitHub/PyPI 工具现状快照和可用性判断。
 - `docs/data_locations.md`: 普通微信 Windows 数据目录与文件名定位笔记。
-- `docs/pipeline_playbook.md`: 从定位、审计、解密结果接入到人格蒸馏的工作流。
+- `docs/pipeline_playbook.md`: 从定位、审计、解密到纯文本或 JSONL 交付的工作流。
 - `docs/wecom_later.md`: 企业微信后续环境准备和差异提醒。
 - `docs/wecom_source_landscape_2026-05-28.md`: 企业微信本地 DB 与官方会话存档工具现状。
 - `scripts/inventory_wechat_paths.ps1`: 只读扫描候选路径和数据库文件名。
@@ -55,13 +55,13 @@
 - `templates/extraction_runbook.md`: 每次实际抽取前填写的运行记录模板。
 - `templates/tool_adapter_spec.md`: 第三方工具 adapter 接入规范。
 
-## 和现有项目的关系
+## 项目边界
 
-本 kit 是现有 `persona_distill` / `persona_agent_stage1` 的上游准备层。它负责回答：
+本 kit 只负责微信聊天记录的定位、授权解密、导出和格式整理。它负责回答：
 
 - 数据在哪里。
 - 哪些数据库或 API 结果可读。
 - 当前工具链是否还能跑、有什么版本风险。
-- 输出如何变成稳定的 JSONL，方便后续蒸馏、检索和本地 agent 使用。
+- 输出如何变成可阅读的 UTF-8 文本或稳定的 JSONL。
 
-真正生成角色资产时，仍使用现有的 `persona_distill` 流程。
+本仓库不生成或维护人物卡、Persona、AI 角色资产和聊天机器人。
